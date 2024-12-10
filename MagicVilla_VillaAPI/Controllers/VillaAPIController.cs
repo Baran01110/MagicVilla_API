@@ -37,6 +37,12 @@ namespace MagicVilla_VillaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<VillaDto> CreateVilla([FromBody]VillaDto villaDto) 
         {
+            if(VillaStore.villaList.FirstOrDefault(u => u.Name.ToLower() == villaDto.Name.ToLower())!= null) 
+            {
+                ModelState.AddModelError("", "Villa Already Exists!");
+                return BadRequest(ModelState);
+            }
+
          if(villaDto == null) 
             {
                 return BadRequest(villaDto);
@@ -50,5 +56,39 @@ namespace MagicVilla_VillaAPI.Controllers
 
             return CreatedAtRoute("GetVilla", new { id = villaDto.ID }, villaDto);
        }
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [HttpDelete("{id:int}", Name = "DeleteVilla")]
+        public IActionResult DeleteVilla(int id) 
+        {
+            if(id == 0)
+            {
+                return BadRequest();
+            }
+            var villa = VillaStore.villaList.FirstOrDefault(u => u.ID == id);
+            if (villa == null)
+            {
+                return NotFound();
+            }
+            VillaStore.villaList.Remove(villa);
+            return NoContent();
+        }
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [HttpPut("{id:int}", Name = "UpdateVilla")]
+        public IActionResult UpdateVilla(int id, [FromBody]VillaDto villaDto)
+        {
+            if (villaDto == null || id != villaDto.ID)
+            {
+                return BadRequest();
+            }
+            var villa = VillaStore.villaList.FirstOrDefault(u => u.ID == id);
+            villa.Name = villaDto.Name;
+            villa.Occupancy = villaDto.Occupancy;
+            villa.Sqft = villaDto.Sqft;
+
+            return NoContent();
+        }
     }
 }
