@@ -4,6 +4,7 @@ using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVillaVillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241214113151_SeedVillaTable")]
+    partial class SeedVillaTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace MagicVillaVillaAPI.Migrations
                         {
                             ID = 1,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 12, 14, 14, 35, 5, 209, DateTimeKind.Local).AddTicks(6230),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "Deneme metnidir...",
                             ImageUrl = "",
                             Name = "Royal Villa",
@@ -83,7 +86,7 @@ namespace MagicVillaVillaAPI.Migrations
                         {
                             ID = 2,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 12, 14, 14, 35, 5, 209, DateTimeKind.Local).AddTicks(6241),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "Deneme metnidir...",
                             ImageUrl = "",
                             Name = "Diomand Villa",
@@ -96,7 +99,7 @@ namespace MagicVillaVillaAPI.Migrations
                         {
                             ID = 3,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 12, 14, 14, 35, 5, 209, DateTimeKind.Local).AddTicks(6242),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "Deneme metnidir...",
                             ImageUrl = "",
                             Name = "Gold Villa",
@@ -109,7 +112,7 @@ namespace MagicVillaVillaAPI.Migrations
                         {
                             ID = 4,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 12, 14, 14, 35, 5, 209, DateTimeKind.Local).AddTicks(6243),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "Deneme metnidir...",
                             ImageUrl = "",
                             Name = "Diomand Pool Villa",
