@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 
 namespace MagicVilla_VillaAPI.Repository
 {
+    //Deneme1 Branch'i ile birleştirme işlemi yapıldı.
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
@@ -36,6 +37,7 @@ namespace MagicVilla_VillaAPI.Repository
                 query = query.Where(filter);
             }
             return await query.FirstOrDefaultAsync();
+
         }
 
         public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null)
