@@ -6,7 +6,9 @@ using System.Linq.Expressions;
 
 namespace MagicVilla_VillaAPI.Repository
 {
+    //Deneme2 Branch oluşturulacak
     //Deneme1 Branch'i ile birleştirme işlemi yapıldı.
+
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
