@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace MagicVilla_VillaAPI.Repository
 {
-
+    //Deneme4
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
